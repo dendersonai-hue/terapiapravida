@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clínica Terapia Pra Vida | Saúde Mental em São Bernardo do Campo</title>
+  <meta name="description" content="Clínica multidisciplinar com foco em saúde mental. Psicologia, Psiquiatria, Terapias Alternativas e muito mais. Atendimento presencial e online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose: #e11d48;
+      --rose-light: #fb7185;
+      --rose-dark: #9f1239;
+      --rose-bg: #fff1f2;
+      --dark: #0f0f0f;
+      --dark2: #1a1a1a;
+      --gray: #6b7280;
+      --light: #f9fafb;
+      --white: #ffffff;
+      --border: #f1f5f9;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--rose);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--dark); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--rose); }
+
+    .nav-cta {
+      background: var(--rose);
+      color: white !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { background: var(--rose-dark); color: white !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a0a0d 50%, #2d0f1a 100%);
+      display: flex;
+      align-items: center;
+      padding: 70px 5% 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(225,29,72,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(225,29,72,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(225,29,72,0.15);
+      border: 1px solid rgba(225,29,72,0.3);
+      color: var(--rose-light);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span { color: var(--rose-light); }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 2.5rem;
+      max-width: 550px;
+      line-height: 1.8;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--rose);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 8px 30px rgba(225,29,72,0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--rose-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(225,29,72,0.45);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-item { text-align: left; }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--rose-light);
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* SECTION BASE */
+    section { padding: 5rem 5%; }
+
+    .section-badge {
+      display: inline-block;
+      background: var(--rose-bg);
+      color: var(--rose);
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    .section-header { margin-bottom: 3.5rem; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    /* ABOUT */
+    .about { background: var(--light); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      color: white;
+    }
+
+    .about-visual h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .about-visual p {
+      opacity: 0.85;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .modality-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .modality-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .modality-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+    .modality-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--rose-bg);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .modality-info h4 { font-weight: 700; margin-bottom: 0.2rem; }
+    .modality-info p { font-size: 0.85rem; color: var(--gray); }
+
+    /* ESPECIALIDADES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      border-color: var(--rose-light);
+      box-shadow: 0 4px 20px rgba(225,29,72,0.08);
+      transform: translateY(-2px);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .service-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* AREAS */
+    .areas { background: var(--dark); }
+    .areas .section-title { color: white; }
+    .areas .section-sub { color: rgba(255,255,255,0.5); }
+    .areas .section-badge { background: rgba(225,29,72,0.15); color: var(--rose-light); }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .area-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .area-item:hover {
+      background: rgba(225,29,72,0.1);
+      border-color: rgba(225,29,72,0.3);
+      color: white;
+    }
+
+    .area-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--rose);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+      text-align: center;
+      padding: 5rem 5%;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      color: var(--rose);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    }
+
+    /* CONTATO */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      background: var(--light);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    .contact-card .contact-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card h4 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p, .contact-card a {
+      color: var(--gray);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover { color: var(--rose); }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 5%;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer .footer-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    footer .footer-logo span { color: var(--rose-light); }
+
+    footer p { margin-top: 0.5rem; }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: all 0.2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .hero-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Terapia<span>PraVida</span></div>
+    <ul class="nav-links">
+      <li><a href="#especialidades">Especialidades</a></li>
+      <li><a href="#areas">Áreas de Atuação</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="https://wa.me/5511911546284" class="nav-cta">Agendar Sessão</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🧠 Clínica Multidisciplinar</div>
+      <h1>Sua saúde<br/><span>em Primeiro Lugar</span></h1>
+      <p>Equipe de psicólogos, terapeutas, nutricionistas, pedagogos, fonoaudiólogos e hipnólogos. Atendimento especializado e acolhedor para todas as faixas etárias.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5511911546284?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão" class="btn-primary">
+          💬 Falar com Atendente
+        </a>
+        <a href="#especialidades" class="btn-secondary">Ver Especialidades →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">+20</div>
+          <div class="stat-label">Especialidades</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Especialistas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Online</div>
+          <div class="stat-label">& Presencial</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about" id="sobre">
+    <div class="about-grid">
+      <div class="about-visual">
+        <h3>Clínica Terapia Pra Vida</h3>
+        <p>Somos uma clínica multidisciplinar com foco em saúde mental, localizada em São Bernardo do Campo - SP. Nossa missão é proporcionar atendimento humanizado, acessível e eficaz para quem busca equilíbrio emocional e bem-estar.</p>
+        <p>Atendemos crianças, adolescentes, adultos e idosos, com profissionais qualificados em diversas áreas da saúde.</p>
+        <div class="about-tags">
+          <span class="tag">📍 São Bernardo do Campo</span>
+          <span class="tag">🏥 Presencial</span>
+          <span class="tag">💻 Online</span>
+          <span class="tag">👶 Todas as idades</span>
+        </div>
+      </div>
+      <div class="modality-cards">
+        <div class="modality-card">
+          <div class="modality-icon">🏥</div>
+          <div class="modality-info">
+            <h4>Atendimento Presencial</h4>
+            <p>R. Dom Luís, 280 - Nova Petrópolis, São Bernardo do Campo - SP</p>
+          </div>
+        </div>
+        <div class="modality-card">
+          <div class="modality-icon">💻</div>
+          <div class="modality-info">
+            <h4>Atendimento Online</h4>
+            <p>Sessões via plataforma segura, de qualquer lugar do Brasil</p>
+          </div>
+        </div>
+        <div class="modality-card">
+          <div class="modality-icon">🕐</div>
+          <div class="modality-info">
+            <h4>Agendamento Fácil</h4>
+            <p>Agende sua sessão diretamente pelo WhatsApp em minutos</p>
+          </div>
+        </div>
+        <a href="https://wa.me/5511911546284?text=Olá,%20gostaria%20de%20marcar%20uma%20sessão" class="btn-primary" style="align-self:flex-start; margin-top:0.5rem;">
+          Marcar Sessão →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES -->
+  <section id="especialidades">
+    <div class="section-header center">
+      <span class="section-badge">Especialidades</span>
+      <h2 class="section-title">Psicoterapia e Terapias Principais</h2>
+      <p class="section-sub">Atendimento especializado com profissionais certificados para cuidar da sua saúde mental</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><span class="service-icon">🧠</span><span class="service-name">Psicoterapia</span></div>
+      <div class="service-card"><span class="service-icon">🩺</span><span class="service-name">Psiquiatria</span></div>
+      <div class="service-card"><span class="service-icon">🛋️</span><span class="service-name">Psicanálise</span></div>
+      <div class="service-card"><span class="service-icon">🧒</span><span class="service-name">Terapia Infantil</span></div>
+      <div class="service-card"><span class="service-icon">🧑</span><span class="service-name">Terapia Adolescente</span></div>
+      <div class="service-card"><span class="service-icon">💑</span><span class="service-name">Terapia de Casal</span></div>
+      <div class="service-card"><span class="service-icon">👥</span><span class="service-name">Terapia em Grupo</span></div>
+      <div class="service-card"><span class="service-icon">🔄</span><span class="service-name">TCC</span></div>
+      <div class="service-card"><span class="service-icon">👨‍👩‍👧</span><span class="service-name">Terapia Familiar</span></div>
+      <div class="service-card"><span class="service-icon">🌟</span><span class="service-name">Constelação Familiar</span></div>
+      <div class="service-card"><span class="service-icon">💫</span><span class="service-name">Hipnoterapia</span></div>
+      <div class="service-card"><span class="service-icon">💃</span><span class="service-name">Dançaterapia</span></div>
+      <div class="service-card"><span class="service-icon">🌸</span><span class="service-name">Floralterapia</span></div>
+      <div class="service-card"><span class="service-icon">✋</span><span class="service-name">Reiki</span></div>
+      <div class="service-card"><span class="service-icon">🗣️</span><span class="service-name">Fonoaudiologia</span></div>
+      <div class="service-card"><span class="service-icon">📋</span><span class="service-name">Laudos</span></div>
+      <div class="service-card"><span class="service-icon">🎓</span><span class="service-name">Neuropsicopedagogia</span></div>
+      <div class="service-card"><span class="service-icon">🔬</span><span class="service-name">Neuropsicologia</span></div>
+      <div class="service-card"><span class="service-icon">🥗</span><span class="service-name">Nutrição</span></div>
+      <div class="service-card"><span class="service-icon">🎨</span><span class="service-name">Arteterapia</span></div>
+    </div>
+  </section>
+
+  <!-- ÁREAS -->
+  <section class="areas" id="areas">
+    <div class="section-header">
+      <span class="section-badge">Áreas de Atuação</span>
+      <h2 class="section-title">O que você está enfrentando?</h2>
+      <p class="section-sub">Temos especialistas prontos para te ajudar com diversas demandas emocionais e de saúde mental</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area-item"><span class="area-dot"></span>Depressão</div>
+      <div class="area-item"><span class="area-dot"></span>Ansiedade</div>
+      <div class="area-item"><span class="area-dot"></span>Síndrome do Pânico</div>
+      <div class="area-item"><span class="area-dot"></span>Fobias</div>
+      <div class="area-item"><span class="area-dot"></span>Distúrbios do Sono</div>
+      <div class="area-item"><span class="area-dot"></span>Conflitos Familiares</div>
+      <div class="area-item"><span class="area-dot"></span>Conflitos de Casal</div>
+      <div class="area-item"><span class="area-dot"></span>Relacionamentos Tóxicos</div>
+      <div class="area-item"><span class="area-dot"></span>Transtornos Alimentares</div>
+      <div class="area-item"><span class="area-dot"></span>Distúrbios Sexuais</div>
+      <div class="area-item"><span class="area-dot"></span>Adicção / Vícios</div>
+      <div class="area-item"><span class="area-dot"></span>Autoestima</div>
+      <div class="area-item"><span class="area-dot"></span>Autoconhecimento</div>
+      <div class="area-item"><span class="area-dot"></span>Insegurança</div>
+      <div class="area-item"><span class="area-dot"></span>Medo de Falar em Público</div>
+      <div class="area-item"><span class="area-dot"></span>Dislexia</div>
+      <div class="area-item"><span class="area-dot"></span>Dificuldades de Aprendizagem</div>
+      <div class="area-item"><span class="area-dot"></span>Comportamentos Tóxicos</div>
+      <div class="area-item"><span class="area-dot"></span>Alcoolismo</div>
+      <div class="area-item"><span class="area-dot"></span>Drogadição</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Pronto para cuidar da sua saúde mental?</h2>
+    <p>Fale agora com um de nossos atendentes e agende sua sessão. Atendimento presencial e online.</p>
+    <a href="https://wa.me/5511911546284?text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20na%20Clínica%20Terapia%20Pra%20Vida" class="btn-white">
+      💬 QUERO FALAR COM UM ATENDENTE
+    </a>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="section-header center">
+      <span class="section-badge">Contato</span>
+      <h2 class="section-title">Fale Conosco</h2>
+      <p class="section-sub">Estamos prontos para te atender e tirar todas as dúvidas</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h4>Endereço</h4>
+        <p>R. Dom Luís, 280 - Nova Petrópolis<br/>São Bernardo do Campo - SP<br/>CEP: 09770-290</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📱</div>
+        <h4>WhatsApp</h4>
+        <a href="https://wa.me/5511911546284">(11) 91154-6284</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <h4>E-mail</h4>
+        <a href="mailto:[email protected]">[email protected]</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📸</div>
+        <h4>Instagram</h4>
+        <a href="https://instagram.com/clinicaterapiapravida" target="_blank">@clinicaterapiapravida</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Terapia<span>PraVida</span></div>
+    <p>Clínica multidisciplinar com foco em saúde mental</p>
+    <p style="margin-top:1.5rem;">© 2025 Clínica Terapia Pra Vida. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/5511911546284?text=Olá,%20Podemos%20ajudá-lo?" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+    💬
+  </a>
+
+</body>
+</html>
